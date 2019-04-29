@@ -77,9 +77,10 @@ class App extends Component {
 
     tmpCard1.matched = true;
 
-    if (lastIndex != null) {
+    if (lastIndex != -1) {
       tmpInit.matched = true;
       arr[lastIndex] = tmpInit;
+      tmpInit.splice(index, 1);
     }
     this.setState({
       initValue: null,
@@ -165,7 +166,11 @@ class App extends Component {
         }
       });
     }
-    return <div>{cardDisplay}</div>;
+    return (
+      <div className="container">
+        <div className="row wrap">{cardDisplay}</div>
+      </div>
+    );
   }
 }
 export default App;
